@@ -67,3 +67,11 @@ done.
  [0]: https://www.omise.co/charges-api
  [1]: https://en.wikipedia.org/wiki/Caesar_cipher
  [2]: https://play.golang.org/p/dCWYyWPHwj4
+
+**Command:**
+```
+cd go-tamboon
+docker-compose up --build -d
+docker-compose run app bash -c "go run main.go"
+```
+
