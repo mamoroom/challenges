@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    build: ./app
+    container_name: "go-tamboon"
+    tty: true
+    volumes:
+      - ./app/src:/go/src/go-tamboon
+      - ../cipher:/go/src/go-tamboon/cipher
+      - ../data:/go/src/go-tamboon/data
