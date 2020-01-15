@@ -64,18 +64,6 @@ func main() {
 			continue
 		}
 
-		// if i % 20 == 0 {
-		// 	time.Sleep(time.Second * 3)
-		// 	fmt.Println(".")
-		// }
-
-        // record, err := reader.Read()
-        // if err == io.EOF {
-        //     break
-        // } else if err != nil {
-        //     panic(err)
-        // }
-
         envelope, e := parseEnvelope(record)
         if e != nil {
         	log.Fatal(e)
@@ -123,8 +111,6 @@ func execPayment(envelope *envelope, p *payment.OmisePayment) (int64, error) {
 	if e != nil {
   		return 0, e
 	}
-    //log.Printf("charge: %s  amount: %s %d\n", charge.ID, charge.Currency, charge.Amount)
-
     return charge.Amount, nil
 }
 
@@ -140,7 +126,6 @@ func readCsv(path string) (*csv.Reader, error){
 		return nil, err
 	}
 	fileSize := fi.Size()
-	// log.Println("Read file size is %d", fileSize)
 
 	rot128Reader, err := cipher.NewRot128Reader(file)
 	if err != nil {
